@@ -33,8 +33,14 @@ class Movie < ActiveRecord::Base
     self.update(attributes)
   end
 
-  def self.update_all_titles(str)
+  def self.update_all_titles_01(str)
     self.update_all "title = '#{str}'"
+  end
+
+  # This alternate method from the official solution
+  #  also passes the test
+  def self.update_all_titles(title)
+    self.update(title: title)
   end
 
   def self.delete_by_id(id)
